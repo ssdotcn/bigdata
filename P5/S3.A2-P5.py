@@ -6,7 +6,6 @@ import json as js
 def getDataAtWorks(linkW):
 
     rqW = rq.get(linkW)
-
     sttsW = rqW.status_code
 
     if sttsW == 200:
@@ -30,17 +29,13 @@ def getDataAtWorks(linkW):
 
         detListCuadros[list(detListCuadros.keys())[3]].append(dimen.split('\n')[1])
 
-
         detListCuadros[list(detListCuadros.keys())[4]].append(linkW)
         
     else:
         print ('STATUS: {}'.format(sttsW))
 
-
 url = 'https://www.artic.edu/collection?artist_ids=Jos%C3%A9%20Clemente%20Orozco'
-
 rqP = rq.get(url)
-
 stts = rqP.status_code
 
 autor = {'PINTOR': None}
@@ -77,7 +72,6 @@ if stts == 200:
 
 else:
     print ('STATUS: {}'.format(stts))
-
 
 dfL = pd.read_json(js.dumps(listCuadros))
 dfDL = pd.read_json(js.dumps(detListCuadros))
